@@ -2,23 +2,23 @@
     <tbody ng-repeat="group in tableData.groups()" class="flipping-table-group">
 
         <!-- Toss out a header for the group -->
-        <tr class="flipping-table-group-header-row">
-            <th class="flipping-table-group-header-cell">
+        <tr class="flipping-table-group-headers">
+            <th class="flipping-table-group-header">
                 {{ group.heading() }}
             </th>
         </tr>
 
         <!-- Toss out a header for all of the columns -->
-        <tr class="flipping-table-group-column-header-row">
-            <th ng-repeat="column in tableData.columns" class="flipping-table-group-column-header-cell">
+        <tr class="flipping-table-col-headers">
+            <th ng-repeat="column in tableData.columns" class="flipping-table-col-header">
                 {{ column.label }}
             </th>
         </tr>
 
         <!-- Toss out a row for each data point -->
-        <tr ng-repeat="entry in group.entries" class="flipping-table-group-data-row">
-            <td ng-repeat="column in tableData.columns" class="flipping-table-group-data-row">
-                {{ entry.displayValue(column) }}
+        <tr ng-repeat="entry in group.entries" class="flipping-table-data-row">
+            <td ng-repeat="column in tableData.columns" class="flipping-table-data">
+                {{ column.displayValue(entry) }}
             </td>
         </tr>
 
