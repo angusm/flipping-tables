@@ -38,6 +38,17 @@ flippingTables.directive('flippingTable', function(){
 
 // FACTORY
 
+// Group Factories
+// ------------------------------------------------------------------------------------------------------------
+flippingTables.factory('GroupFactory', function() {
+	return function(
+		heading,
+	    entries
+	) {
+
+	};
+});
+
 // Column Factories
 // ------------------------------------------------------------------------------------------------------------
 

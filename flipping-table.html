@@ -1,10 +1,12 @@
-<h1>{{ 'STEAM: ' + tableData.anger }}</h1>
 <table class="flipping-table">
     <tbody ng-repeat="group in tableData.groups" class="flipping-table-group">
 
         <!-- Toss out a header for the group -->
         <tr class="flipping-table-group-headers">
-            <th class="flipping-table-group-header">
+            <th
+                class="flipping-table-group-header"
+                ng-attr-colspan="{{tableData.columns.length}}"
+            >
                 {{ group.heading() }}
             </th>
         </tr>
