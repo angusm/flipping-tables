@@ -18,9 +18,16 @@ define(
 			var self = this;
 
 			// PROPERTIES
-			this.columns = [];
+			this.columns = [
+				new Column('y'),
+				new Column('y'),
+				new Column('y')
+			];
 			this.entries = [];
-			this.groups = [];
+			this.groups = [
+				new Group(),
+				new Group()
+			];
 
 			// FUNCTIONS
 

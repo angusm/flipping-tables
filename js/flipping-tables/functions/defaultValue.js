@@ -3,7 +3,7 @@
  */
 
 /**
- * Used to assign a default value to a parameter in a readable way
+ * Return the first parameter that is not defined
  * @param parameter
  * @param defaultValue
  * @returns {*}
@@ -12,12 +12,20 @@ define(
 	[],
 	function() {
 
-		return function(parameter, defaultValue) {
-			var result = parameter;
-			if ('undefined' === typeof parameter) {
-				result = defaultValue;
+		// Loop through the parameters and return the first one
+		// that is not undefined
+		return function() {
+
+			// Loop through the args
+			for (var argCounter = 0; argCounter < arguments.length; argCounter++) {
+				if (typeof arguments[argCounter] !== 'undefined') {
+					return arguments[argCounter];
+				}
 			}
-			return result;
+
+			// If a defined argument couldn't be found, return undefined
+			return undefined;
+
 		};
 	}
 );

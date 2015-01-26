@@ -9,14 +9,9 @@ define(
 		// Directives
 		'flipping-tables/directives/flipping-table-directive',
 
-		// Externals
-		'flipping-tables/external-libraries/angularWrapper',
-
 		// Factories
 		'flipping-tables/factories/columnFactory',
 		'flipping-tables/factories/groupFactory',
-
-		// Functions
 
 		//Modules
 		'flipping-tables/modules/flipping-table'
@@ -28,9 +23,6 @@ define(
 
 		// Directives
 		ftDirective,
-
-		// Externals
-	    angular,
 
 		// Factories
 		columnFactory,
@@ -55,8 +47,7 @@ define(
 		// Set up the directives
 		ftModule.directive('flippingTable', ftDirective);
 
-		// Set up the
-
+		// Return the module
 		return ftModule;
 	}
 );

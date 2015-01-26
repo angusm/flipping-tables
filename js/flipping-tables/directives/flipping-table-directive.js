@@ -30,20 +30,7 @@ define(
 					controllers
 				) {
 					// Grab the table data from the scope
-					var tableData = scope.tableData;
-
-					// Grab the information from the data for the
-					// entries, columns and groups
-					/**
-				    tableData.setEntries(
-						jQuery(element).data('entries')
-					);
-					tableData.addColumns(
-						jQuery(element).data('columns')
-					);
-					tableData.addGroup();
-					tableData.addGroup();
-					 **/
+					window.tableData = scope.tableData;
 				},
 				templateUrl:'../templates/flipping-table.html'
 			};

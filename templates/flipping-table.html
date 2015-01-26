@@ -19,7 +19,7 @@
         </tr>
 
         <!-- Toss out a row for each data point -->
-        <tr ng-repeat="entry in group.entries" class="flipping-table-data-row">
+        <tr ng-repeat="entry in group.sortedActiveEntries" class="flipping-table-data-row">
             <td ng-repeat="column in tableData.columns" class="flipping-table-data">
                 {{ column.displayValue(entry) }}
             </td>
