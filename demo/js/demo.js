@@ -8,7 +8,7 @@
 requirejs.config({
 	baseUrl: 'js/',
 	paths: {
-		'flipping-tables':  '.. /../js/flipping-tables'
+		'flipping-tables':  '../../js/flipping-tables'
 	}
 });
 
@@ -18,6 +18,6 @@ requirejs.config({
 requirejs(
 	['flipping-tables/main'],
 	function(ft) {
-
+		window.ft = ft;
 	}
 );

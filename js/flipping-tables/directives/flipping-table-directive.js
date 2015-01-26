@@ -2,14 +2,26 @@
  * Created by Angus on 2015-01-20.
  */
 define(
-	[],
-	function() {
+	[
+		// Controllers
+		'flipping-tables/controllers/flipping-table-controller',
+
+		// External Libraries
+		'flipping-tables/external-libraries/jqueryWrapper'
+	],
+	function(
+		// Controller
+		flippingTableController,
+
+		// External Libraries
+		jQuery
+	) {
 
 		// Return the directive
 		return function() {
 			return {
 				restrict:       'E',
-				controller:     'FlippingTables',
+				controller:     flippingTableController,
 				controllerAs:   'tableData',
 				link: function(
 					scope,
@@ -22,17 +34,19 @@ define(
 
 					// Grab the information from the data for the
 					// entries, columns and groups
-					tableData.setEntries(
-						$(element).data('entries')
+					/**
+				    tableData.setEntries(
+						jQuery(element).data('entries')
 					);
 					tableData.addColumns(
-						$(element).data('columns')
+						jQuery(element).data('columns')
 					);
 					tableData.addGroup();
 					tableData.addGroup();
+					 **/
 				},
-				templateUrl:'flipping-table.html'
+				templateUrl:'../templates/flipping-table.html'
 			};
-		}
+		};
 	}
 );

@@ -4,7 +4,7 @@
 define(
 	[
 		'flipping-tables/factories/filters/columnFilter',
-		'flipping-tables/external-libraries/jquery-2.1.3.js'
+		'flipping-tables/external-libraries/jqueryWrapper'
 	],
 	function(
 		columnFilter,
