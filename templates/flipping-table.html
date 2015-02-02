@@ -15,13 +15,15 @@
         <tr class="flipping-table-col-headers">
             <th ng-repeat="column in tableData.columns" class="flipping-table-col-header">
                 {{ column.label }}
+                <div ng-click="tableData.setSortColumn(column,true)">^</div>
+                <div ng-click="tableData.setSortColumn(column,false)">v</div>
             </th>
         </tr>
 
         <!-- Toss out a row for each data point -->
-        <tr ng-repeat="entry in group.sortedActiveEntries" class="flipping-table-data-row">
+        <tr ng-repeat="entry in group.sortedActiveEntries()" class="flipping-table-data-row">
             <td ng-repeat="column in tableData.columns" class="flipping-table-data">
-                {{ column.displayValue(entry) }}
+                {{ column.getDisplayValue(entry) }}
             </td>
         </tr>
 

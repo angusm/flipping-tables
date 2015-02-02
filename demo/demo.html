@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-    <script type="text/javascript" data-main="js/demo.js" src="js/require.js"></script>
-</head>
-<body ng-app="FlippingTables">
-    <!-- Store entry, column and group information in the tag -->
-    <flipping-table></flipping-table>
-</body>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+        <script type="text/javascript" data-main="js/demo.js" src="js/require.js"></script>
+    </head>
+    <body ng-controller="DemoController">
+
+        <!-- Add the grouping buttons -->
+        <input type="button" value="Group By Red" ng-click="tableData.groupBy('red','Red')">
+        <input type="button" value="Group By Green" ng-click="tableData.groupBy('green','Red')">
+        <input type="button" value="Group By Blue" ng-click="tableData.groupBy('blue','Red')">
+
+        <!-- Store entry, column and group information in the tag -->
+        <flipping-table></flipping-table>
+    </body>
 </html>

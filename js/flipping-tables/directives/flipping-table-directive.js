@@ -4,17 +4,11 @@
 define(
 	[
 		// Controllers
-		'flipping-tables/controllers/flipping-table-controller',
-
-		// External Libraries
-		'flipping-tables/external-libraries/jqueryWrapper'
+		'flipping-tables/controllers/flipping-table-controller'
 	],
 	function(
 		// Controller
-		flippingTableController,
-
-		// External Libraries
-		jQuery
+		flippingTableController
 	) {
 
 		// Return the directive
@@ -29,8 +23,6 @@ define(
 					attrs,
 					controllers
 				) {
-					// Grab the table data from the scope
-					window.tableData = scope.tableData;
 				},
 				templateUrl:'../templates/flipping-table.html'
 			};

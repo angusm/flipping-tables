@@ -3,51 +3,81 @@
  */
 define(
 	[
-		// Controllers
-		'flipping-tables/controllers/flipping-table-controller',
 
 		// Directives
 		'flipping-tables/directives/flipping-table-directive',
 
-		// Factories
-		'flipping-tables/factories/columnFactory',
-		'flipping-tables/factories/groupFactory',
+		// Externals
+		'flipping-tables/external-libraries/angularWrapper',
 
-		//Modules
-		'flipping-tables/modules/flipping-table'
+		// Factories
+		'flipping-tables/models/Column',
+		'flipping-tables/models/Group',
+
+		// Functions
+		'flipping-tables/functions/defaultValue'
+
 	],
 	function(
 
-		// Controllers,
-		ftController,
-
 		// Directives
 		ftDirective,
+
+		// Externals
+		angular,
 
 		// Factories
 		columnFactory,
 		groupFactory,
 
-		// Modules
-		ftModule
+		// Functions
+		defaultValue
+
 	) {
 
-		// Setup the factories
-		ftModule.factory('ColumnFactory',columnFactory);
-		ftModule.factory('GroupFactory',groupFactory);
+		/**
+		 * Return a function that can be run on a module. This will attach the table directive and factories
+		 * to the module.
+		 */
+		return {
 
-		// Setup the controllers
-		ftModule.controller(
-			'FlippingTables',
-			[
-				ftController
-			]
-		);
+			/**
+			 * Function to create a module with the given name with (or attach to a module with the given name)
+			 * all of the functionality necessary for a flipping table
+			 * @param moduleName
+			 * @param moduleParams
+			 */
+			createFTModule: function(moduleName,moduleParams){
 
-		// Set up the directives
-		ftModule.directive('flippingTable', ftDirective);
+				// Default the module params to an empty array
+				moduleParams = defaultValue(moduleParams,[]);
 
-		// Return the module
-		return ftModule;
+				// Get the module
+				var module;
+				try {
+					module = angular.module(moduleName);
+				} catch(e) {
+					module = angular.module(moduleName,moduleParams);
+				}
+
+				// Setup the factories
+				module.factory('ColumnFactory', columnFactory);
+				module.factory('GroupFactory', groupFactory);
+
+				// Set up the directives
+				module.directive('flippingTable', ftDirective);
+
+				// Return the module
+				return module;
+
+			},
+
+			Models: {
+				Column: columnFactory,
+				Group: groupFactory
+			}
+
+		};
+
 	}
 );
